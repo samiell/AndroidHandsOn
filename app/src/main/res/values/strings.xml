@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ProfileMe</string>
+
+
+    <string name="country_prompt">Choose your country</string>
+    <string-array name="country_arrays">
+        <item>Ghana</item>
+        <item>Kenya</item>
+        <item>Nigeria</item>
+    </string-array>
+    <string name="title_activity_display">DisplayActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+</resources>
