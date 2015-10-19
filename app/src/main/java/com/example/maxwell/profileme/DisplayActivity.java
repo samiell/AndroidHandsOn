@@ -13,16 +13,22 @@ public class DisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
-        TextView fnameView = (TextView) findViewById(R.id.firstname_view);
-        TextView lnameView = (TextView) findViewById(R.id.lastname_view);
-        TextView gnameView = (TextView) findViewById(R.id.gender_view);
-        TextView nationView = (TextView) findViewById(R.id.nation_view);
+        TextView firstname_text_view = (TextView) findViewById(R.id.firstname_view);
+        TextView lastname_text_view = (TextView) findViewById(R.id.lastname_view);
+        TextView gender_text_view = (TextView) findViewById(R.id.gender_view);
+        TextView country_text_view = (TextView) findViewById(R.id.nation_view);
 
         Intent intent = getIntent();
-        if(fnameView != null) fnameView.setText(intent.getStringExtra(MainActivity.Fname).toString());
-        if(lnameView != null) lnameView.setText(intent.getStringExtra(MainActivity.Lname).toString());
-        if(gnameView != null) gnameView.setText(intent.getStringExtra(MainActivity.Gname).toString());
-        if(nationView != null) nationView.setText(intent.getStringExtra(MainActivity.Fname).toString());
+
+        String usersFirstname = intent.getStringExtra(MainActivity.Fname).toString();
+        String usersLastname = intent.getStringExtra(MainActivity.Lname).toString();
+        String usersGender = intent.getStringExtra(MainActivity.Gname).toString();
+        String usersCountry = intent.getStringExtra(MainActivity.Cname).toString();
+
+        firstname_text_view.setText(usersFirstname);
+        lastname_text_view.setText(usersLastname);
+        gender_text_view.setText(usersGender);
+        country_text_view.setText(usersCountry);
 
     }
 

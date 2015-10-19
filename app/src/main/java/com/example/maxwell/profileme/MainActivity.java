@@ -27,15 +27,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendMessage(View view){
-        EditText first_name = (EditText) this.findViewById(R.id.firstname);
-        EditText last_name = (EditText) this.findViewById(R.id.lastname);
-        Spinner nationale = (Spinner) this.findViewById(R.id.country);
+        EditText first_name_text_box = (EditText) this.findViewById(R.id.firstname);
+        EditText last_name_text_box = (EditText) this.findViewById(R.id.lastname);
+        Spinner nationale_dropdown = (Spinner) this.findViewById(R.id.country);
+
+        String usersFirstname = first_name_text_box.getText().toString();
+        String usersLastname = last_name_text_box.getText().toString();
+        String usersCountry = nationale_dropdown.getSelectedItem().toString();
 
         Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
-        intent.putExtra(Fname, first_name.getText().toString());
-        intent.putExtra(Lname, last_name.getText().toString());
-        intent.putExtra(Cname, nationale.getSelectedItem().toString());
+
+        //Store data to be passed to next activity
+        intent.putExtra(Fname, usersFirstname);
+        intent.putExtra(Lname, usersLastname);
+        intent.putExtra(Cname, usersCountry);
         intent.putExtra(Gname, this.gender);
+
         startActivity(intent);
     }
 
@@ -44,15 +51,10 @@ public class MainActivity extends AppCompatActivity {
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.female:
-                if (checked)
-                    this.gender = "Female";
-                    break;
-            case R.id.male:
-                if (checked)
-                    this.gender = "Male";
-                    break;
+        if(view.getId() == R.id.female){
+            if(checked) this.gender = "Female";
+        }else if(view.getId() == R.id.male){
+            if(checked) this.gender = "Male";
         }
     }
 
